@@ -1974,6 +1974,10 @@ func createRoutingKey(routingKeyInfo *routingKeyInfo, values []interface{}) ([]b
 		return nil, nil
 	}
 
+	if len(routingKeyInfo.indexes) == 0 {
+		return nil, nil
+	}
+
 	if len(routingKeyInfo.indexes) == 1 {
 		// single column routing key
 		routingKey, err := Marshal(
