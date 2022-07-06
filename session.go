@@ -1892,7 +1892,7 @@ func (b *Batch) GetRoutingKey() ([]byte, error) {
 }
 
 func createRoutingKey(routingKeyInfo *routingKeyInfo, values []interface{}) ([]byte, error) {
-	if routingKeyInfo == nil {
+	if routingKeyInfo == nil || len(routingKeyInfo.indexes) == 0 {
 		return nil, nil
 	}
 
